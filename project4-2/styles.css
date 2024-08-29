@@ -1,0 +1,94 @@
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #f0f0f0;
+}
+
+.container {
+  text-align: center;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.choices button {
+  margin: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.results {
+  margin-top: 20px;
+}
+
+.choice-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.choice-labels p {
+  font-weight: bold;
+}
+
+.choice-displays {
+  display: flex;
+  justify-content: space-between;
+}
+
+.choice-display {
+  width: 100px;
+  height: 100px;
+  margin: 10px auto;
+  position: relative;
+}
+
+.choice-display img {
+  width: 100%;
+  height: 100%;
+}
+
+.waiting-animation {
+  width: 50px;
+  height: 50px;
+  border: 5px solid #ccc;
+  border-top-color: #333;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes spin {
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+.notification {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #4CAF50;
+  color: white;
+  padding: 15px;
+  border-radius: 5px;
+  font-size: 24px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s, visibility 0.5s;
+}
+
+.notification.show {
+  opacity: 1;
+  visibility: visible;
+}

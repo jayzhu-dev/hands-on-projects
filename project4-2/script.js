@@ -1,93 +1,3 @@
-
-
-// let round = 0;
-// let humanScore = 0;
-// let computerScore = 0;
-
-// for (round = 1; round <= 5; round++) {
-
-//   //这两行要重新琢磨透彻！之前完全没想到，依靠AI做出来的
-
-//   // let randomNum = Math.random();
-//   // let computerChoice = getComputerChoice(randomNum);
-
-//   // function getComputerChoice(randomNum) {
-//   //   if (randomNum < 1 / 3) {
-//   //     return "rock";
-//   //   } else if (randomNum > 1 / 3 && randomNum < 2 / 3) {
-//   //     return "paper";
-//   //   } else {
-//   //     return "scissors";
-//   //   }
-//   // }
-//   const randomNum = Math.floor(Math.random() * 3);
-//   const array = ["rock", "paper", "scissors"];
-//   const computerChoice = array[randomNum];
-
-
-
-//   // getComputerChoice(randomNum);
-//   console.log(randomNum);
-//   console.log(computerChoice);
-
-//   let humanChoice = prompt("Please give a try")
-
-//   function getHumanChoice(humanChoice) {
-//     humanChoice = humanChoice.toLowerCase()
-//     console.log(humanChoice);
-//   }
-//   getHumanChoice(humanChoice)
-
-
-//   function playRound(humanChoice, computerChoice) {
-//     if (humanChoice === computerChoice) {
-//       alert("You get a tie");
-//       humanScore += 0;
-//       computerScore += 0;
-//     }
-//     else if (
-//       (humanChoice === "rock" && computerChoice === "scissors") ||
-//       (humanChoice === "paper" && computerChoice === "rock") ||
-//       (humanChoice === "scissors" && computerChoice === "paper")
-//     ) {
-//       alert("You win!");
-//       humanScore += 1;
-//       computerScore += 0;
-//     }
-//     else {
-//       alert("You lose!")
-//       humanScore += 0;
-//       computerScore += 1;
-//     }
-//     console.log(round);
-//     console.log(humanScore, computerScore);
-//   }
-
-//   if
-//     (humanScore === 3) {
-//     break;
-//     alert("YOU WIN in the end!")
-//   }
-//   else if
-//     (computerScore === 3) {
-//     break;
-//     alert("YOU LOSE in the end! You can try again");
-//   }
-
-//   playRound(humanChoice, computerChoice)
-
-// }
-
-// // console.log(humanScore, computerScore);
-
-// if (humanScore > computerScore) {
-//   alert("YOU WIN in the end!");
-// }
-// else {
-//   alert("YOU LOSE in the end! You can try again");
-// }
-
-
 let round = 0;
 let humanScore = 0;
 let computerScore = 0;
@@ -124,33 +34,33 @@ function playRound(humanChoice, computerChoice) {
     computerChoiceDisplay.innerHTML = `<img src="${computerChoice}.png" alt="${computerChoice}">`;
 
     if (humanChoice === computerChoice) {
-      roundResult.textContent = "You get a tie";
-      showNotification("Tie!");
+      roundResult.textContent = "平局";
+      showNotification("平局!");
       tieSound.play();
     } else if (
       (humanChoice === "rock" && computerChoice === "scissors") ||
       (humanChoice === "paper" && computerChoice === "rock") ||
       (humanChoice === "scissors" && computerChoice === "paper")
     ) {
-      roundResult.textContent = "You win!";
+      roundResult.textContent = "你赢了";
       humanScore += 1;
-      showNotification("You Win!");
+      showNotification("你赢了!");
       winSound.play();
     } else {
-      roundResult.textContent = "You lose!";
+      roundResult.textContent = "你输了，行不行啊!";
       computerScore += 1;
-      showNotification("You Lose!");
+      showNotification("你输了，二狗赢了!");
       loseSound.play();
     }
-    humanScoreDisplay.textContent = `Human Score: ${humanScore}`;
-    computerScoreDisplay.textContent = `Computer Score: ${computerScore}`;
+    humanScoreDisplay.textContent = `小猫咪的分数: ${humanScore}`;
+    computerScoreDisplay.textContent = `二狗的分数: ${computerScore}`;
 
     if (humanScore === 3) {
-      showNotification("YOU WIN in the end!");
+      showNotification("哎嘛，让你赢了!");
       winSound.play();
       resetGame();
     } else if (computerScore === 3) {
-      showNotification("YOU LOSE in the end! You can try again");
+      showNotification("输了吧，小猫咪!");
       loseSound.play();
       resetGame();
     }
@@ -162,10 +72,12 @@ function resetGame() {
   humanScore = 0;
   computerScore = 0;
   roundResult.textContent = "";
-  humanScoreDisplay.textContent = "Human Score: 0";
-  computerScoreDisplay.textContent = "Computer Score: 0";
-  userChoiceDisplay.innerHTML = "";
-  computerChoiceDisplay.innerHTML = `<div class="waiting-animation"></div>`;
+  // 保留最后一局的分数显示
+  // humanScoreDisplay.textContent = "小猫咪的分数: 0";
+  // computerScoreDisplay.textContent = "二狗的分数: 0";
+  // 保留最后一局的选择显示
+  // userChoiceDisplay.innerHTML = "";
+  // computerChoiceDisplay.innerHTML = `<div class="waiting-animation"></div>`;
 }
 
 document.getElementById('rock').addEventListener('click', () => {

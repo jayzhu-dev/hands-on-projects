@@ -39,4 +39,24 @@ document.addEventListener('DOMContentLoaded', () => {
       playNote(noteFrequencies[note]);
     });
   });
+
+  document.addEventListener('keydown', (event) => {
+    const key = event.key.toLowerCase();
+    keys.forEach(keyElement => {
+      if (keyElement.getAttribute('data-key') === key) {
+        const note = keyElement.getAttribute('data-note');
+        playNote(noteFrequencies[note]);
+        keyElement.classList.add('active');
+      }
+    });
+  });
+
+  document.addEventListener('keyup', (event) => {
+    const key = event.key.toLowerCase();
+    keys.forEach(keyElement => {
+      if (keyElement.getAttribute('data-key') === key) {
+        keyElement.classList.remove('active');
+      }
+    });
+  });
 });

@@ -1,6 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
+  // 模块1: 创建音频上下文
   const audioContext = new (window.AudioContext || window.webkitAudioContext)();
 
+  // 模块2: 播放音符的函数
   function playNote(note) {
     const oscillator = audioContext.createOscillator();
     const gainNode = audioContext.createGain();
@@ -17,7 +19,10 @@ document.addEventListener('DOMContentLoaded', () => {
     oscillator.stop(audioContext.currentTime + 1);
   }
 
+  // 模块3: 获取所有的键元素
   const keys = document.querySelectorAll('.key');
+
+  // 模块4: 音符频率映射
   const noteFrequencies = {
     'C4': 261.63,
     'C#4': 277.18,
@@ -33,6 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
     'B4': 493.88
   };
 
+  // 模块5: 为每个键添加点击事件监听器
   keys.forEach(key => {
     key.addEventListener('click', () => {
       const note = key.getAttribute('data-note');
@@ -40,6 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // 模块6: 键盘按下事件监听器
   document.addEventListener('keydown', (event) => {
     const key = event.key.toLowerCase();
     keys.forEach(keyElement => {
@@ -51,6 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // 模块7: 键盘释放事件监听器
   document.addEventListener('keyup', (event) => {
     const key = event.key.toLowerCase();
     keys.forEach(keyElement => {

@@ -17,6 +17,7 @@ const projects = {
   group4: [
     { name: "项目4-1 Blackjack", description: "这是一个用JavaScript实现的项目", url: "project4-1/index.html" },
     { name: "项目4-2 Rock Paper Scissors", description: "这是另一个用JavaScript实现的项目", url: "project4-2/index.html" },
+    { name: "项目4-3 Midi Piano", description: "这是另一个用JavaScript实现的项目", url: "project4-3/index.html" }
     // 添加更多项目...
   ],
   group5: [

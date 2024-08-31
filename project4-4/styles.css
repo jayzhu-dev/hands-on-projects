@@ -1,0 +1,42 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0;
+  margin: 0;
+}
+
+.piano {
+  display: flex;
+}
+
+.key {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding-bottom: 20px;
+  user-select: none;
+  cursor: pointer;
+}
+
+.white {
+  width: 60px;
+  height: 200px;
+  background-color: white;
+  border: 1px solid #000;
+  border-right: none;
+}
+
+.white:last-child {
+  border-right: 1px solid #000;
+}
+
+.black {
+  width: 40px;
+  height: 120px;
+  background-color: black;
+  margin-left: -20px;
+  margin-right: -20px;
+  z-index: 1;
+}
